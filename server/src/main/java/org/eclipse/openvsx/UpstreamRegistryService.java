@@ -402,6 +402,11 @@ public class UpstreamRegistryService implements IExtensionRegistry {
     }
 
     public String getPublicKey(String publicId) {
+        if (!isValidPublicId(publicId)) {
+            logger.error("Invalid publicId: " + publicId);
+            throw new IllegalArgumentException("Invalid publicId format");
+        }
+
         var urlTemplate = urlConfigService.getUpstreamUrl() + "/api/public-key/{publicId}";
         var uriVariables = new HashMap<String, String>();
         uriVariables.put("publicId", publicId);
@@ -416,6 +421,11 @@ public class UpstreamRegistryService implements IExtensionRegistry {
 
             throw new NotFoundException();
         }
+    }
+
+    private boolean isValidPublicId(String publicId) {
+        // Validate that the publicId is a valid UUID
+        return publicId != null && publicId.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$");
     }
 
     /**

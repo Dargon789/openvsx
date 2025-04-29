@@ -63,7 +63,7 @@
         "@types/react": "^18.2.14"
     },
     "devDependencies": {
-        "@babel/core": "^7.25.2",
+        "@babel/core": "^7.26.10",
         "@eslint/eslintrc": "^3.2.0",
         "@eslint/js": "^9.15.0",
         "@playwright/test": "^1.49.0",
@@ -92,7 +92,7 @@
         "eslint-plugin-react": "^7.37.2",
         "express": "^4.21.2",
         "express-rate-limit": "^7.4.0",
-        "mocha": "^10.8.2",
+        "mocha": "^11.0.1",
         "rimraf": "^6.0.1",
         "source-map-loader": "^4.0.1",
         "style-loader": "^3.3.3",
